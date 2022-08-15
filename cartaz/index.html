@@ -84,6 +84,9 @@ body {font-family: "Lato", sans-serif}
      </div>
 
     <p class="w3-justify">Em 1843 ingressou na Escola de Medicina no Porto mas se entregou a boêmia e não conseguiu concluir o curso.</p>
+    
+    <div id="player"></div>
+    
     <div class="w3-row w3-center w3-padding-32">
       <h3 class="w3-wide" id="contrib">Contribuidores</h3>
       <div class="w3-card-4 w3-center" style="width:50%">
@@ -323,7 +326,8 @@ var modal = document.getElementById('ticketModal');
 var anderson = document.getElementById('ticketAnderson');
 var gustavo = document.getElementById('ticketGustavo');
 var guilherme = document.getElementById('ticketGuilherme');
-
+var tag = document.createElement('script');
+  
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
@@ -341,6 +345,45 @@ window.onclick = function(event) {
     guilherme.style.display = "none";
   }
 }
+
+tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '360',
+          width: '640',
+          videoId: 'M7lc1UVf-VE',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 6000);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
+  
 </script>
 
 </body>
