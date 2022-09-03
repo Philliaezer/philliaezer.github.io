@@ -53,21 +53,21 @@ body {font-family: "Lato", sans-serif}
 
   <!-- Automatic Slideshow Images -->
   <div class="mySlides w3-display-container w3-center">
-    <img src="./img/camiloum.jpeg" style="width:100%">
+    <img src="./img/camiloum.jpeg" style="width:100%" onclick="openModal();currentDiv(1)">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>Camilo (1)</h3>
       <p><b>Camillo</b></p>   
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
-    <img src="./img/camilodois.jpeg" style="width:100%">
+    <img src="./img/camilodois.jpeg" style="width:100%" onclick="openModal();currentDiv(2)">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>Camilo (2)</h3>
       <p><b>Outra imagem do Camilo.</b></p>    
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_98-58avM-lGNt6rGPNoN3OFEzQRs0-mZKA&usqp=CAU" style="width:100%">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_98-58avM-lGNt6rGPNoN3OFEzQRs0-mZKA&usqp=CAU" style="width:100%" onclick="openModal();currentDiv(3)">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>Camilo (3)</h3>
       <p><b>Camilo e sua esposa.</b></p>    
@@ -95,7 +95,7 @@ body {font-family: "Lato", sans-serif}
       <div id="player"></div>
     </div>
 
-    <!-- Seção "Curiosidades" do Camilo>
+    <!-- Seção "Curiosidades" do Camilo -->
     <div class="w3-container">
      <h3 class="w3-wide">Curiosidades</h3>
      <p class="w3-justify">fughgh</p>
@@ -211,6 +211,36 @@ body {font-family: "Lato", sans-serif}
     </div>
   </div>
   
+ <!-- Modal do Carrossel de Imagens do Camilo -->
+ <div id="myModal" class="w3-modal w3-black">
+ <span class="w3-text-white w3-xxlarge w3-hover-text-grey w3-container w3-display-topright" onclick="closeModal()" style="cursor:pointer">&times;</span>
+ <div class="w3-modal-content">
+
+  <div class="w3-content" style="max-width:1200px">
+   <img class="mySlides" src="https://philliaezer.github.io/cartaz/img/camiloum.jpeg" style="width:100%">
+   <img class="mySlides" src="https://philliaezer.github.io/cartaz/img/camilodois.jpeg" style="width:100%">
+   <img class="mySlides" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_98-58avM-lGNt6rGPNoN3OFEzQRs0-mZKA&usqp=CAU" style="width:100%">
+   <div class="w3-row w3-black w3-center">
+    <div class="w3-display-container">
+     <p id="caption"></p>
+     <span class="w3-display-left w3-btn" onclick="plusDivs(-1)">&#10094;</span>
+     <span class="w3-display-right w3-btn" onclick="plusDivs(1)">&#10095;</span>
+    </div>
+    <div class="w3-col s4">
+     <img class="demo w3-opacity w3-hover-opacity-off" src="https://philliaezer.github.io/cartaz/img/camiloum.jpeg" style="width:100%" onclick="currentDiv(1)" alt="Nature and sunrise">
+    </div>
+    <div class="w3-col s4">
+     <img class="demo w3-opacity w3-hover-opacity-off" src="https://philliaezer.github.io/cartaz/img/camilodois.jpeg" style="width:100%" onclick="currentDiv(2)" alt="French Alps">
+    </div>
+    <div class="w3-col s4">
+     <img class="demo w3-opacity w3-hover-opacity-off" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_98-58avM-lGNt6rGPNoN3OFEzQRs0-mZKA&usqp=CAU" style="width:100%" onclick="currentDiv(3)" alt="Mountains and fjords">
+    </div>
+   </div> <!-- End row -->
+  </div> <!-- End w3-content -->
+  
+ </div> <!-- End modal content -->
+</div> <!-- End modal -->
+
 <!-- End Page Content -->
 </div>
 
@@ -245,6 +275,8 @@ body {font-family: "Lato", sans-serif}
 <script>
 // Automatic Slideshow - change image every 4 seconds
 var myIndex = 0;
+var slideIndex = 1;
+
 carousel();
 
 function carousel() {
@@ -257,6 +289,32 @@ function carousel() {
   if (myIndex > x.length) {myIndex = 1}    
   x[myIndex-1].style.display = "block";  
   setTimeout(carousel, 4000);    
+}
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+  }
+  x[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " w3-opacity-off";
+  captionText.innerHTML = dots[slideIndex-1].alt;
 }
 
 // Used to toggle the menu on small screens when clicking on the menu button
