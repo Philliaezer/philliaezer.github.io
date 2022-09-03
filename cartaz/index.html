@@ -16,6 +16,7 @@ body {font-family: "Lato", sans-serif}
 .w3-select-usecase::selection {background-color: black; color: white}
 .w3-select-usecase::-moz-selection {background: black; color: white} 
 .w3-ytvideo {box-sizing: border-box;}
+.mySlidess {display: none}
 </style>
 </head>
 <body>
@@ -217,9 +218,9 @@ body {font-family: "Lato", sans-serif}
  <div class="w3-modal-content">
 
   <div class="w3-content" style="max-width:1200px">
-   <img class="mySlides" src="https://philliaezer.github.io/cartaz/img/camiloum.jpeg" style="width:100%">
-   <img class="mySlides" src="https://philliaezer.github.io/cartaz/img/camilodois.jpeg" style="width:100%">
-   <img class="mySlides" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_98-58avM-lGNt6rGPNoN3OFEzQRs0-mZKA&usqp=CAU" style="width:100%">
+   <img class="mySlidess" src="https://philliaezer.github.io/cartaz/img/camiloum.jpeg" style="width:100%">
+   <img class="mySlidess" src="https://philliaezer.github.io/cartaz/img/camilodois.jpeg" style="width:100%">
+   <img class="mySlidess" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_98-58avM-lGNt6rGPNoN3OFEzQRs0-mZKA&usqp=CAU" style="width:100%">
    <div class="w3-row w3-black w3-center">
     <div class="w3-display-container">
      <p id="caption"></p>
@@ -227,13 +228,13 @@ body {font-family: "Lato", sans-serif}
      <span class="w3-display-right w3-btn" onclick="plusDivs(1)">&#10095;</span>
     </div>
     <div class="w3-col s4">
-     <img class="demo w3-opacity w3-hover-opacity-off" src="https://philliaezer.github.io/cartaz/img/camiloum.jpeg" style="width:100%" onclick="currentDiv(1)" alt="Nature and sunrise">
+     <img class="demo w3-opacity w3-hover-opacity-off" src="https://philliaezer.github.io/cartaz/img/camiloum.jpeg" style="width:100%" onclick="currentDiv(1)" alt="Retrato de Camilo Castelo Branco">
     </div>
     <div class="w3-col s4">
-     <img class="demo w3-opacity w3-hover-opacity-off" src="https://philliaezer.github.io/cartaz/img/camilodois.jpeg" style="width:100%" onclick="currentDiv(2)" alt="French Alps">
+     <img class="demo w3-opacity w3-hover-opacity-off" src="https://philliaezer.github.io/cartaz/img/camilodois.jpeg" style="width:100%" onclick="currentDiv(2)" alt="Outro retrato de Camilo">
     </div>
     <div class="w3-col s4">
-     <img class="demo w3-opacity w3-hover-opacity-off" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_98-58avM-lGNt6rGPNoN3OFEzQRs0-mZKA&usqp=CAU" style="width:100%" onclick="currentDiv(3)" alt="Mountains and fjords">
+     <img class="demo w3-opacity w3-hover-opacity-off" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_98-58avM-lGNt6rGPNoN3OFEzQRs0-mZKA&usqp=CAU" style="width:100%" onclick="currentDiv(3)" alt="Camilo, sua esposa, e seu filho">
     </div>
    </div> <!-- End row -->
   </div> <!-- End w3-content -->
@@ -309,7 +310,7 @@ function currentDiv(n) {
 
 function showDivs(n) {
   var e;
-  var x = document.getElementsByClassName("mySlides");
+  var x = document.getElementsByClassName("mySlidess");
   var dots = document.getElementsByClassName("demo");
   var captionText = document.getElementById("caption");
   if (n > x.length) {slideIndex = 1}
