@@ -291,6 +291,14 @@ function carousel() {
   setTimeout(carousel, 4000);    
 }
 
+function openModal() {
+  document.getElementById('myModal').style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+}
+
 function plusDivs(n) {
   showDivs(slideIndex += n);
 }
@@ -300,17 +308,17 @@ function currentDiv(n) {
 }
 
 function showDivs(n) {
-  var i;
+  var e;
   var x = document.getElementsByClassName("mySlides");
   var dots = document.getElementsByClassName("demo");
   var captionText = document.getElementById("caption");
   if (n > x.length) {slideIndex = 1}
   if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
+  for (e = 0; e < x.length; e++) {
+    x[e].style.display = "none";
   }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+  for (e = 0; e < dots.length; e++) {
+    dots[e].className = dots[e].className.replace(" w3-opacity-off", "");
   }
   x[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " w3-opacity-off";
