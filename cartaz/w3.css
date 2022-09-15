@@ -1,6 +1,7 @@
 /* W3.CSS 4.15 Dezembro de 2020 por Jan Egil e Borge Refsnes */
 /* Esse é um template editado da w3schools.com/ */
-html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
+html{box-sizing:border-box;}*,*:before,*:after{box-sizing:inherit}
+html{scroll-behavior: smooth;}
 /* Extraido do normalize.css por Nicolas Gallagher e Jonathan Neal git.io/normalize */
 html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}
 article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}summary{display:list-item}
