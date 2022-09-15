@@ -363,6 +363,48 @@ body {font-family: "Lato", sans-serif}
     </div>
   </div>
   
+  <!-- Ticket URL Call -->
+  <div id="urlcall" class="w3-modal-personal">
+    <div class="w3-modal-content w3-animate-bottom w3-card-4 w3-bck-greyer conf">
+    
+      <div class="w3-container">
+      		<div class="w3-container w3-scroller w3-center">
+		        <h2>Você deseja abrir esse link?</h2>
+		        <div class="w3-btn w3-blue">Abrir aqui</div>
+		            <hr />
+		        <div class="w3-btn">Abrir aqui</div>
+		            <hr />
+		        <div class="w3-button">Abrir aqui</div>
+		            <hr />
+		        <h3>Bio</h3>
+		          <p><i>Ainda não contribuiu</i></p>
+      		</div>
+        
+          <div class="w3-center w3-display-container">
+	<a class="w3-display-left" href="https://wa.me/?text=Ola%20Amigo!!!%0A%0AAchei%20esse%20site%20maravilhoso%20para%20aprender%20quem%20foi%20Camilo%20Castelo%20Branco,%20espero%20que%20goste:%20https://philliaezer.github.io/cartaz/">
+					     <div class="w3-button w3-hover-teal w3-green" style="transition: 0.25s;">
+					      <p class="w3-text"><i class="fa fa-whatsapp"></i> Envie por WhatsApp</z></p>
+					      </div>
+					     </a>
+					    
+					     <a class="w3-display-middle" href="#">
+					      <div class="w3-button w3-hover-indigo w3-blue" style="transition: 0.25s;">
+					       <p><i class="fa fa-telegram"></i> Envie por Telegram</p>
+								  	</div>
+					     </a>
+					    
+					     <a class="w3-display-right" href="#">
+					      <div class="w3-button w3-hover-purple w3-red" style="transition: 0.25s;">
+					       <p><i class="material-icons">email</i>Envie por Email</p>
+					      </div>
+					     </a>
+					    </div>
+        
+        <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
+      </div>
+    </div>
+  </div>
+
  <!-- Modal do Carrossel de Imagens do Camilo -->
  <div id="myModal" class="w3-modal w3-black">
  <span class="w3-text-white w3-xxlarge w3-hover-text-grey w3-container w3-display-topright" onclick="closeModal()" style="cursor:pointer">&times;</span>
@@ -588,6 +630,11 @@ tag.src = "https://www.youtube.com/iframe_api";
 	  document.body.scrollTop = 0; // For Safari
 	  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 	}
+
+function disablen(){
+  	event.preventDefault();
+  	document.getElementById('urlcall').style.display = "block";
+  	}
 
 function chTheme(){
 	var themer = document.getElementById('body').getAttribute('theme');
