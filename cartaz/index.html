@@ -180,7 +180,7 @@ body {font-family: "Lato", sans-serif}
 	      
    <div class="w3-third w3-personal-mb-div">
 	<div class="w3-card">
-		<img src="https://www.google.com/imgres?imgurl=http%3A%2F%2F1.bp.blogspot.com%2F-S6nVFuYTvBU%2FVg1U8dMaaTI%2FAAAAAAAADNQ%2FtY7gNa_WYag%2Fs1600%2Fattention-307030_640.png&imgrefurl=http%3A%2F%2Fwww.sisipsemg.com.br%2F2015%2F10%2F01%2Fatencao-servidores-11%2F&tbnid=Yk7mg0a4gi5BWM&vet=12ahUKEwi6yI3Xj5f6AhWwBrkGHcndBMkQMygEegUIARDMAQ..i&docid=o0RoqDP8qk9TXM&w=640&h=576&q=aten%C3%A7%C3%A3o&ved=2ahUKEwi6yI3Xj5f6AhWwBrkGHcndBMkQMygEegUIARDMAQ" class="w3-round w3-margin-bottom w3-greyscale" alt="Guilherme" onclick="document.getElementById('ticketGuilherme').style.display='block'" style="width:100%">
+		<img src="" class="w3-round w3-margin-bottom w3-greyscale" alt="Guilherme" onclick="document.getElementById('ticketGuilherme').style.display='block'" style="width:100%">
 		<p>Guilherme</p>
 	</div>
     </div>
@@ -464,6 +464,10 @@ function openModal(xy) {
 
 function closeModal() {
   document.getElementById('myModal').style.display = "none";
+  mmd.style.display = "none";
+  document.getElementById(xy).style.display = "none";
+  document.webkitExitFullscreen();
+
 }
 
 function plusDivs(n) {
