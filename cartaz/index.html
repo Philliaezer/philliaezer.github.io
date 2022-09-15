@@ -530,8 +530,8 @@ function chTheme(){
 		document.getElementById('all-content').classList.remove('w3-lighter');
 		document.getElementById('rftb').classList.add('w3-table-all');
 		document.getElementById('rftb').classList.remove('w3-table-black');
-		document.getElementById('moon-light').classList.add('nonnio');
-		document.getElementById('sun-dark').classList.remove('nonnio');
+		document.getElementById('moon-light').style.display = 'none';
+		document.getElementById('sun-dark').style.display = 'block';
 	};
 							
 	if(themer == 'dark'){
@@ -540,8 +540,8 @@ function chTheme(){
 		document.getElementById('all-content').classList.remove('w3-darker');
 		document.getElementById('rftb').classList.add('w3-table-black');
 		document.getElementById('rftb').classList.remove('w3-table-all');
-		document.getElementById('sun-light').classList.add('nonnio');
-		document.getElementById('moon-dark').classList.remove('nonnio');
+		document.getElementById('sun-light').style.display = 'none';
+		document.getElementById('moon-dark').style.display = 'block';
 	};
 };
   // Desculpe, esse site ainda está bastante desorganizado :)
