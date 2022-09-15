@@ -289,5 +289,5 @@ input:checked + .w3-theme-ch:before{content:"tchau"}
 .content .toggle{position:absolute;width:40px;height:20px;background:#092c3e;right:15px;top:13px;border-radius:20px;display:flex;align-items:center;cursor:pointer}
 #switching:checked ~ .outer .toggle, #switchGuilherme:checked ~ .outer .toggle, #switchAnderson:checked ~ .outer .toggle{background:#fff;}
 .toggle .circle{width:16px;height:16px;background:#fff;border-radius:50%;margin-left:3px;transition:all 0.35s ease}
-#switching:checked ~ .outer .circle, #switchGuilherme:checked ~ .outer .circle, #switchAnderson:checked ~ .outer .circle{background:#092c3e;}
+#switching:checked ~ .outer .circle, #switchGuilherme:checked ~ .outer .circle, #switchAnderson:checked ~ .outer .circle{background:#092c3e}
 #switching, #switchGuilherme, #switchAnderson{display:none}
