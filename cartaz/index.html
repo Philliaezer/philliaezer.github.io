@@ -19,7 +19,7 @@ body {font-family: "Lato", sans-serif}
 .mySlidess {display: none}
 </style>
 </head>
-<body>
+<body class="light">
 
 <!-- Navbar -->
 <div class="w3-top">
@@ -37,7 +37,7 @@ body {font-family: "Lato", sans-serif}
         <a href="#" class="w3-bar-item w3-button">SIT DOLOR</a>
       </div>
     </div>
-    <a class="w3-bar-item w3-button w3-padding-large w3-right w3-hide-small" href="#">
+    <a class="w3-bar-item w3-button w3-padding-large w3-right w3-hide-small" href="javascript:void(0)" onclick="chTheme()">
 	<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 20 20" height="24" viewBox="0 0 24 24" width="24" style="filter:invert(1)">
 	  <path d="M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36c-0.98,1.37-2.58,2.26-4.4,2.26 c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z">
 	  </path>
@@ -56,7 +56,7 @@ body {font-family: "Lato", sans-serif}
 </div>
 
 <!-- Page content -->
-<div class="w3-content" style="max-width:2000px;margin-top:46px">
+<div class="w3-content" style="max-width:2000px;margin-top:46px" id="all-content">
 
   <!-- Automatic Slideshow Images -->
   <div class="mySlides w3-display-container w3-center">
@@ -110,13 +110,25 @@ body {font-family: "Lato", sans-serif}
    
     <!-- Seção "Referências Bibliográficas" do Site -->
     
-    <div class="w3-container">
-     <h3 class="w3-wide">Referências Bibliográficas</h3>
-     <p class="w3-justify"> Amor de perdição</p>
-     <p class="w3-justify">Amor de salvação</p>
-     <p class="w3-justify">Eusébio Macário</p>
-     <p class="w3-justify">A brasileira de prazins</p>
-    </div>
+    <div class="w3-container" id="ref">
+	<h3 class="w3-wide w3-personal-ref-black">Referências Bibliográficas</h3>
+	<table id="rftb" class="w3-card-4 w3-table-black">
+	  <tbody>
+		<tr>
+	          <th class="w3-center">&nbsp;</th>
+	        </tr>
+	        <tr>
+	          <td class="w3-center">SOBRENOME, Nome. Título do artigo. Nome do site, ano de publicação. Disponível em: endereço eletrônico.</td>
+	        </tr>
+	        <tr>
+	          <td class="w3-center">SOBRENOME, Nome. Título do artigo. Nome do site, ano de publicação. Disponível em: <a href="https://google.com" onclick="disablen()">endereço eletrônico.</a></td>
+	        </tr>
+	        <tr>
+	          <td class="w3-center">SOBRENOME, Nome. Título do artigo. Nome do site, ano de publicação. Disponível em: endereço eletrônico.</td>
+	        </tr>
+	 </tbody>
+     </table>
+  </div>
    
     <!-- Seção "Contribuidores" do projeto -->
     <div class="w3-row w3-center w3-padding-32">
@@ -404,6 +416,29 @@ tag.src = "https://www.youtube.com/iframe_api";
       function stopVideo() {
         player.stopVideo();
       }
+	
+function chTheme(){
+	var lightMaker = ['w3-white','w3-pale-blue','w3-pale-green','w3-orange'];		
+	var darkMaker = ['w3-darker','w3-indigo','w3-teal','w3-brown'];
+	var themer = document.getElementById('body').getAttribute('theme');
+	var themerIer = document.getElementById('body');
+							
+	if(themer == 'light'){
+		themerIer.setAttribute('theme','dark');
+		document.getElementById('all-content').classList.add('w3-darker');
+		document.getElementById('all-content').classList.remove('w3-lighter');
+		document.getElementById('rftb').classList.add('w3-table-all');
+		document.getElementById('rftb').classList.remove('w3-table-black');
+	};
+							
+	if(themer == 'dark'){
+		themerIer.setAttribute('theme','light');
+		document.getElementById('all-content').classList.add('w3-lighter');
+		document.getElementById('all-content').classList.remove('w3-darker');
+		document.getElementById('rftb').classList.add('w3-table-black');
+		document.getElementById('rftb').classList.remove('w3-table-all');
+	};
+};
   // Desculpe, esse site ainda está bastante desorganizado :)
   
 </script>
