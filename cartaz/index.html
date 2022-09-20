@@ -40,7 +40,7 @@ body {font-family: "Lato", sans-serif}
       </div>
     </div>
     <a class="w3-bar-item w3-button w3-padding-large w3-right w3-hide-small" href="javascript:void(0)" onclick="chTheme()">
-	<i class="fa-solid fa-moon" id="theme-icon"></i>
+	<i id="theme-icon" class="fa-solid fa-moon"></i>
      </a>
     <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
   </div>
@@ -619,8 +619,8 @@ function chTheme(){
 		document.getElementById('all-content').classList.remove('w3-lighter');
 		document.getElementById('rftb').classList.add('w3-table-all');
 		document.getElementById('rftb').classList.remove('w3-table-black');
-		document.getElementById('theme-icon').classList.add = 'fa-sun';
-		document.getElementById('theme-icon').classList.remove = 'fa-moon';
+		document.getElementById('theme-icon').classList.add('fa-sun');
+		document.getElementById('theme-icon').classList.remove('fa-moon');
 		document.getElementById('quotte').classList.add('w3-light-grey');
 		document.getElementById('quotte').classList.remove('w3-bck-greyer');
 	};
@@ -631,8 +631,8 @@ function chTheme(){
 		document.getElementById('all-content').classList.remove('w3-darker');
 		document.getElementById('rftb').classList.add('w3-table-black');
 		document.getElementById('rftb').classList.remove('w3-table-all');
-		document.getElementById('theme-icon').classList.add = 'fa-moon';
-		document.getElementById('theme-icon').classList.remove = 'fa-sun';
+		document.getElementById('theme-icon').classList.add('fa-moon');
+		document.getElementById('theme-icon').classList.remove('fa-sun');
 		document.getElementById('quotte').classList.add('w3-bck-greyer');
 		document.getElementById('quotte').classList.remove('w3-light-grey');
 	};
