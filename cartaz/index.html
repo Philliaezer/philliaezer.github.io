@@ -19,7 +19,7 @@ body {font-family: "Lato", sans-serif}
 .w3-ytvideo {box-sizing: border-box;}
 .mySlidess {display: none}
 .nonnio {display: none}
-.progress-container{width: 100%; height:8px; background: #aaa}
+.progress-container{width: 100%; height: 8px; background: #aaa}
 .progress-bar{height: 8px; background: #AA6C16; width: 0%}
 </style>
 </head>
@@ -48,7 +48,7 @@ body {font-family: "Lato", sans-serif}
   </div>
 
   <div class="progress-container">
-    <div class="progress-bar" id="minhaBarra"></div>
+    <div class="progress-bar" id="minhaBarra"> </div>
   </div>
 </div>
 
@@ -471,7 +471,7 @@ function scrollSign(){
     var altura = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     var scrolled = (winScroll / altura) * 100;
     document.getElementById("minhaBarra").style.width = scrolled + "%";
-  }
+  };
 
 // Automatic Slideshow - change image every 4 seconds
 var myIndex = 0;
