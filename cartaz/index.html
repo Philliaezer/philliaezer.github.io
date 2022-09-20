@@ -26,7 +26,7 @@ body {font-family: "Lato", sans-serif}
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-left" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="#" class="w3-bar-item w3-button w3-padding-large">BIOGRAFIA</a>
     <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MENU UM</a>
     <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MENU DOIS</a>
@@ -34,13 +34,13 @@ body {font-family: "Lato", sans-serif}
     <div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="More">MAIS <i class="fa fa-caret-down"></i></button>     
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="#" class="w3-bar-item w3-button">LOREM</a>
-        <a href="#" class="w3-bar-item w3-button">IPSUM</a>
-        <a href="#" class="w3-bar-item w3-button">SIT DOLOR</a>
+        <a href="#" class="w3-bar-item w3-button">CONFIGURAÇÕES</a>
+        <a href="#" class="w3-bar-item w3-button">INFORMAÇÕES</a>
+        <a href="#" class="w3-bar-item w3-button">SUGESTÕES</a>
       </div>
     </div>
-    <a class="w3-bar-item w3-button w3-padding-large w3-right w3-hide-small nonnio" href="javascript:void(0)" onclick="chTheme()" id="moon-dark">
-	<i class="fa-solid fa-sun"></i>
+    <a class="w3-bar-item w3-button w3-padding-large w3-right w3-hide-small" href="javascript:void(0)" onclick="chTheme()">
+	<i class="fa-solid" id="theme-icon"></i>
      </a>
     <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
   </div>
@@ -622,8 +622,8 @@ function chTheme(){
 		document.getElementById('all-content').classList.remove('w3-lighter');
 		document.getElementById('rftb').classList.add('w3-table-all');
 		document.getElementById('rftb').classList.remove('w3-table-black');
-		document.getElementById('moon-light').style.display = 'none';
-		document.getElementById('sun-dark').style.display = 'block';
+		document.getElementById('theme-icon').classList.add = 'fa-sun';
+		document.getElementById('theme-icon').class list.remove = 'fa-moon';
 		document.getElementById('quotte').classList.add('w3-light-grey');
 		document.getElementById('quotte').classList.remove('w3-bck-greyer');
 	};
@@ -634,8 +634,8 @@ function chTheme(){
 		document.getElementById('all-content').classList.remove('w3-darker');
 		document.getElementById('rftb').classList.add('w3-table-black');
 		document.getElementById('rftb').classList.remove('w3-table-all');
-		document.getElementById('sun-light').style.display = 'none';
-		document.getElementById('moon-dark').style.display = 'block';
+		document.getElementById('theme-icon').classList.add = 'fa-moon';
+		document.getElementById('theme-icon').classList.remove = 'fa-sun';
 		document.getElementById('quotte').classList.add('w3-bck-greyer');
 		document.getElementById('quotte').classList.remove('w3-light-grey');
 	};
