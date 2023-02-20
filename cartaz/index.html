@@ -12,17 +12,18 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	
 <style>
-body {font-family: "Lato", sans-serif}
-.mySlides {display: none}
-.w3-select-usecase::selection {background-color: black; color: white}
-.w3-select-usecase::-moz-selection {background: black; color: white} 
-.w3-ytvideo {box-sizing: border-box;}
-.mySlidess {display: none}
-.nonnio {display: none}
-.progress-container{width: 100%; height: 8px; background: #aaa}
-.progress-bar{height: 8px; background: #AA6C16; width: 0%}
+  body {font-family: "Lato", sans-serif}
+  .mySlides {display: none}
+  .w3-select-usecase::selection {background-color: black; color: white}
+  .w3-select-usecase::-moz-selection {background: black; color: white} 
+  .w3-ytvideo {box-sizing: border-box;}
+  .mySlidess {display: none}
+  .nonnio {display: none}
+  .progress-container{width: 100%; height: 8px; background: #aaa}
+  .progress-bar{height: 8px; background: #AA6C16; width: 0%}
 </style>
 </head>
+
 <body theme="light" id="body">
 
 <!-- Navbar -->
@@ -42,9 +43,11 @@ body {font-family: "Lato", sans-serif}
       </div>
     </div>
     <a class="w3-bar-item w3-button w3-padding-large w3-right" href="javascript:void(0)" onclick="chTheme()">
-	<i id="theme-icon" class="fa-solid fa-moon"></i>
+	    <i id="theme-icon" class="fa-solid fa-moon"></i>
      </a>
-    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right" onclick="chTheme()">
+      <i class="fa fa-search"></i>
+    </a>
   </div>
 
   <div class="progress-container">
@@ -95,10 +98,11 @@ body {font-family: "Lato", sans-serif}
     <div class="w3-panel w3-light-grey" id="quotte">
       <span style="font-size:150px;line-height:0.6em;opacity:0.2">&#10077;</span>
       <p class="w3-xlarge" style="margin-top:-40px">
-        <i class="w3-select-usecase">"As maiores desgraças são aquelas que a si próprias não podem perdoar"</i></p>
+        <i class="w3-select-usecase">"As maiores desgraças são aquelas que a si próprias não podem perdoar"</i>
+      </p>
       <p>Camilo Castelo Branco</p>
-     </div>
-
+    </div>
+    
     <p class="w3-justify">Em 1843 ingressou na Escola de Medicina no Porto mas se entregou a boêmia e não conseguiu concluir o curso.</p>
     
     <h3 class="w3-wide">Vida Amorosa</h3>
@@ -145,47 +149,47 @@ body {font-family: "Lato", sans-serif}
    
     <!-- Seção "Referências Bibliográficas" do Site -->
     
-    <div class="w3-container" id="ref">
-	<h3 class="w3-wide w3-personal-ref-black">Referências Bibliográficas</h3>
-	<table id="rftb" class="w3-card-4 w3-table-all">
-	  <tbody>
-		<tr>
-	          <th class="w3-center">&nbsp;</th>
-	        </tr>
-	        <tr>
-	          <td class="w3-center">SOBRENOME, Nome. Título do artigo. Nome do site, ano de publicação. Disponível em: endereço eletrônico.</td>
-	        </tr>
-	        <tr>
-	          <td class="w3-center">SOBRENOME, Nome. Título do artigo. Nome do site, ano de publicação. Disponível em: <a href="https://google.com" onclick="disablen()">endereço eletrônico.</a></td>
-	        </tr>
-	        <tr>
-	          <td class="w3-center">SOBRENOME, Nome. Título do artigo. Nome do site, ano de publicação. Disponível em: endereço eletrônico.</td>
-	        </tr>
-	 </tbody>
-     </table>
+  <div class="w3-container" id="ref">
+    <h3 class="w3-wide w3-personal-ref-black">Referências Bibliográficas</h3>
+    <table id="rftb" class="w3-card-4 w3-table-all">
+      <tbody>
+        <tr>
+          <th class="w3-center">&nbsp;</th>
+        </tr>
+        <tr>
+          <td class="w3-center">SOBRENOME, Nome. Título do artigo. Nome do site, ano de publicação. Disponível em: endereço eletrônico.</td>
+        </tr>
+        <tr>
+          <td class="w3-center">SOBRENOME, Nome. Título do artigo. Nome do site, ano de publicação. Disponível em: <a href="https://google.com" onclick="disablen()">endereço eletrônico.</a></td>
+        </tr>
+        <tr>
+          <td class="w3-center">SOBRENOME, Nome. Título do artigo. Nome do site, ano de publicação. Disponível em: endereço eletrônico.</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
    
-    <!-- Seção "Contribuidores" do projeto -->
-    <div class="w3-center w3-margin-top w3-row-padding w3-hide-small">
-     <h3 class="w3-wide" id="contrib">Contribuidores</h3>
-     <h5 class="w3-wide">Clique nas fotos para mas informações</h5>
-     
-       <div class="w3-third w3-personal-mb-div">
-		      <div class="w3-card-dark">
-		        <img src="./img/Gustavo.jpeg" class="w3-round" alt="Gustavo" onclick="openModal('ticketGustavo')" style="width:100%">
-		        <p>Gustavo</p>
-		      </div>
-      </div>
-	      
-   <div class="w3-third w3-personal-mb-div">
-	<div class="w3-card">
-		<img src="https://thumbs.dreamstime.com/z/%C3%ADcone-de-aten%C3%A7%C3%A3o-ilustra%C3%A7%C3%A3o-simples-do-sinal-vetor-164299629.jpg" class="w3-round w3-margin-bottom w3-greyscale" alt="Guilherme" onclick="document.getElementById('ticketGuilherme').style.display='block'" style="width:100%">
-		<p>Guilherme</p>
-	</div>
-    </div>
-	      
+  <!-- Seção "Contribuidores" do projeto -->
+  <div class="w3-center w3-margin-top w3-row-padding w3-hide-small">
+    <h3 class="w3-wide" id="contrib">Contribuidores</h3>
+    <h5 class="w3-wide">Clique nas fotos para mas informações</h5>
+    
     <div class="w3-third w3-personal-mb-div">
-	 <div class="w3-card">
+      <div class="w3-card-dark">
+        <img src="./img/Gustavo.jpeg" class="w3-round" alt="Gustavo" onclick="openModal('ticketGustavo')" style="width:100%">
+        <p>Gustavo</p>
+    </div>
+  </div>
+	      
+  <div class="w3-third w3-personal-mb-div">
+	  <div class="w3-card">
+      <img src="https://thumbs.dreamstime.com/z/%C3%ADcone-de-aten%C3%A7%C3%A3o-ilustra%C3%A7%C3%A3o-simples-do-sinal-vetor-164299629.jpg" class="w3-round w3-margin-bottom w3-greyscale" alt="Guilherme" onclick="document.getElementById('ticketGuilherme').style.display='block'" style="width:100%">
+      <p>Guilherme</p>
+	  </div>
+  </div>
+	      
+  <div class="w3-third w3-personal-mb-div">
+	  <div class="w3-card">
 		<img src="./img/Anderson.jpg" class="w3-round w3-margin-bottom w3-hover-opacity" alt="Anderson" onclick="document.getElementById('ticketAnderson').style.display='block'" style="width:100%">
 
 		<div class="w3-container w3-center">
@@ -436,7 +440,8 @@ body {font-family: "Lato", sans-serif}
 
 <!-- End Page Content -->
 </div>
-	
+</div>
+
 <div class="w3-center">
 	<a href="https://wa.me/send?text=Ola%20Amigo!!!%0A%0AAchei%20esse%20site%20maravilhoso%20para%20aprender%20quem%20foi%20Camilo%20Castelo%20Branco:%20https://philliaezer.github.io/cartaz/">
 	     <div class="w3-button w3-hover-teal w3-green" style="transition: 0.25s;">
@@ -516,7 +521,7 @@ function closeModal() {
   document.getElementById('myModal').style.display = "none";
   mmd.style.display = "none";
   document.getElementById(xy).style.display = "none";
-  document.webkitExitFullscreen();
+  document.exitFullscreen();
 
 }
 
@@ -626,8 +631,8 @@ function disablen(){
   	}
 
 function chTheme(){
-	var themer = document.getElementById('body').getAttribute('theme');
 	var themerIer = document.getElementById('body');
+	var themer = themerIer.getAttribute('theme');
 							
 	if(themer == 'light'){
 		themerIer.setAttribute('theme','dark');
