@@ -246,7 +246,7 @@ header.w3-blue-small{background-color: blue; background-image: linear-gradient(4
 .w3-border-pale-red,.w3-hover-border-pale-red:hover{border-color:#ffe7e7!important}.w3-border-pale-green,.w3-hover-border-pale-green:hover{border-color:#e7ffe7!important}
 .w3-border-pale-yellow,.w3-hover-border-pale-yellow:hover{border-color:#ffffcc!important}.w3-border-pale-blue,.w3-hover-border-pale-blue:hover{border-color:#e7ffff!important}
 /* Preferencias Pessoais */
-.w3-select-usecase::selection {background-: linear-gradient(45deg, #585776, #343261); color: white; border: 5px solid green; border-radius: 20px; font-size: 20px;}
+.w3-select-usecase::selection {background-color: linear-gradient(45deg, #585776, #343261); color: white; border: 5px solid green; border-radius: 20px; font-size: 20px;}
 .w3-select-usecase::-moz-selection {background: black; color: white; border: 5px solid green; border-radius: 20px;} 
 .w3-ytvideo {box-sizing: border-box;}
 .w3-selection-dark{background-color: white; color: black; border-radius: 20px}

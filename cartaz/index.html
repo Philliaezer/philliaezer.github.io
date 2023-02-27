@@ -21,6 +21,23 @@
   .nonnio {display: none}
   .progress-container{width: 100%; height: 8px; background: #aaa}
   .progress-bar{height: 8px; background: #AA6C16; width: 0%}
+  .progress-bar:after {content: ""; height: 8px; background: red; width: 0%}
+  .w3-text-animt{
+    -webkit-animation: w3-text-animt 5s cubic-bezier(0.215,0.610,0.355,1.000) both;
+    animation: w3-text-animt 5s cubic-bezier(0.215,0.610,0.355,1.000) both;
+  }
+
+  @-webkit-keyframes w3-text-animt{
+      0%{letter-spacing:0.2em; font-size:40px; opacity:0;}
+      40%{opacity:0.6; font-size:30px;}
+      100%{letter-spacing:normal;opacity:1;}
+      }
+
+  @keyframes w3-text-animt{
+      0%{letter-spacing:0.2em; font-size:40px; opacity:0;}
+      40%{opacity:0.6; font-size:30px;}
+      100%{letter-spacing:normal;opacity:1;}
+      }
 </style>
 </head>
 
@@ -30,14 +47,14 @@
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">BIOGRAFIA</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="openModal('bio-resum')">BIOGRAFIA</a>
     <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MENU UM</a>
     <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MENU DOIS</a>
     <a href="#contrib" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTRIBUIDORES</a>
     <div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="More">MAIS <i class="fa fa-caret-down"></i></button>     
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="#" class="w3-bar-item w3-button">CONFIGURAÇÕES</a>
+        <a href="#" class="w3-bar-item w3-button" onclick="openModal('settings')">CONFIGURAÇÕES</a>
         <a href="#" class="w3-bar-item w3-button">INFORMAÇÕES</a>
         <a href="#" class="w3-bar-item w3-button">SUGESTÕES</a>
       </div>
@@ -51,7 +68,7 @@
   </div>
 
   <div class="progress-container">
-    <div class="progress-bar" id="minhaBarra"> </div>
+    <div class="progress-bar" id="minhaBar"></div>
   </div>
 </div>
 
@@ -60,7 +77,7 @@
   <a href="#band" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">VIDEO</a>
   <a href="#ref" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">REFERÊNCIAS</a>
   <a href="#contrib" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">COONTRIBUIDORES</a>
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONFIGURAÇÕES</a>
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-large" onclick="openModal('settings')">CONFIGURAÇÕES</a>
 </div>
 
 <!-- Page content -->
@@ -91,8 +108,8 @@
 
   <!-- Seção "Pequena Biografia" do Camilo -->
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
-    <h2 class="w3-wide">CAMILO CASTELO BRANCO</h2>
-    <p class="w3-opacity"><i>Escritor brasileiro</i></p>
+    <h2 class="w3-wide w3-text-animt">CAMILO CASTELO BRANCO</h2>
+    <p class="w3-opacity"><i>Escritor Português</i></p>
     <p class="w3-justify">Camilo Castelo Branco nasceu na Freguesia dos Martires, em Lisboa, Portugal, no dia 16 de março de 1825, filho de Manuel Joaquim Batalha Castelo Branco e de Jacinta Rosa do Espirito Santo Ferreira. Ficou orfão de mãe com um ano e de pai com 10 anos. Foi morar com uma tia e depois com sua irmã mais velha. Em 1841 com apenas 16 anos, casou se com uma jovem de 15 anos, Joaquina Pereira, mas logo a abandonou.</p>
 
     <div class="w3-panel w3-light-grey" id="quotte">
@@ -366,25 +383,77 @@
     </div>
   </div>
   
+  <!-- Ticket BioResum -->
+  <div id="bio-resum" class="w3-modal" style="-webkit-user-select: none; user-select: none;">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-teal w3-center w3-padding-32"> 
+        <span onclick="closeModal('ticketGuilherme')" class="w3-button w3-teal w3-xlarge w3-display-topright">&times;</span>
+        <h2 class="w3-wide"><i class="fa fa-sun w3-margin-right"></i>Vai citar em seu trabalho?</h2>
+      </header>
+      
+      <h3>Use o seguinte rodapé:</h3>
+      <p>Camilo Castelo Branco - Páginas do GitHub, 2022. Disponível em: https://philliaezer.github.io/cartaz</p>
+    
+        <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketGuilherme').style.display='none'">Fechar <i class="fa fa-remove"></i></button>
+        
+        <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Ticket Configurações -->
+  <div id="settings" class="w3-modal">
+    <div class="w3-modal-content w3-animate-fading-unloop w3-card-4 w3-bck-greyer conf">
+      <header class="w3-container w3-indigo-gradient w3-center w3-padding-32"> 
+        <span onclick="closeModal('settings')" class="w3-button w3-teal w3-xlarge w3-display-topright">&times;</span>
+        <h2 class="w3-wide"><i class="fa fa-user w3-margin-right"></i>Configurações</h2>
+      </header>
+      <div class="w3-container">
+      		<div class="w3-container w3-scroller">
+		        <h3>Fonte</h3>
+		            <p><b>Nome:</b> Guilherme</p>
+		            <hr />
+		        <h3>Tamanho da Fonte</h3>
+		            <span onclick="document.getElementById('all-content').style.fontSize = '1em'">A</span>
+		            <span onclick="document.getElementById('all-content').style.fontSize = '2em'">A</span>
+		            <span onclick="aumentaFonte('3em')">A</span>
+		            <hr />
+		        <h3>Configurações Avançadas</h3>
+		            <p><b>Nome:</b> Guilherme</p>
+		            <hr />
+		        <h3>Bio</h3>
+		          <p><i>Ainda não contribuiu</i></p>
+      		</div>
+					    
+        <button class="w3-button w3-red w3-section" onclick="document.getElementById('settings').style.display='none'">Fechar <i class="fa fa-remove"></i></button>
+        
+        <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
+      </div>
+    </div>
+  </div>
+
   <!-- Ticket URL Call -->
   <div id="urlcall" class="w3-modal-personal">
     <div class="w3-modal-content w3-animate-bottom w3-card-4 w3-bck-greyer conf">
     
       <div class="w3-container">
-      		<div class="w3-container w3-scroller w3-center">
+      		<div class="w3-container w3-center">
 		        <h2>Você deseja abrir esse link?</h2>
 		        <div class="w3-btn w3-blue">Abrir aqui</div>
-		            <hr />
+		        <hr />
+
 		        <div class="w3-btn">Abrir aqui</div>
-		            <hr />
+		        <hr />
+
 		        <div class="w3-button">Abrir aqui</div>
-		            <hr />
+		        <hr />
+            
 		        <h3>Bio</h3>
 		          <p><i>Ainda não contribuiu</i></p>
       		</div>
         
           <div class="w3-center w3-display-container">
-	<a class="w3-display-left" href="https://wa.me/?text=Ola%20Amigo!!!%0A%0AAchei%20esse%20site%20maravilhoso%20para%20aprender%20quem%20foi%20Camilo%20Castelo%20Branco,%20espero%20que%20goste:%20https://philliaezer.github.io/cartaz/">
+	            <a class="w3-display-left" href="https://wa.me/?text=Ola%20Amigo!!!%0A%0AAchei%20esse%20site%20maravilhoso%20para%20aprender%20quem%20foi%20Camilo%20Castelo%20Branco,%20espero%20que%20goste:%20https://philliaezer.github.io/cartaz/">
 					     <div class="w3-button w3-hover-teal w3-green" style="transition: 0.25s;">
 					      <p class="w3-text"><i class="fa fa-whatsapp"></i> Envie por WhatsApp</z></p>
 					      </div>
@@ -414,9 +483,9 @@
  <div class="w3-modal-content">
 
   <div class="w3-content" style="max-width:1200px">
-   <img class="mySlidess w3-animate-zoom" src="https://philliaezer.github.io/cartaz/img/camiloum.jpeg" style="width:100%">
-   <img class="mySlidess w3-animate-zoom" src="https://philliaezer.github.io/cartaz/img/camilodois.jpeg" style="width:100%">
-   <img class="mySlidess w3-animate-zoom" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_98-58avM-lGNt6rGPNoN3OFEzQRs0-mZKA&usqp=CAU" style="width:100%">
+   <img class="mySlidess w3-animate-zoom" src="./img/camiloum.jpeg" style="width:100%">
+   <img class="mySlidess w3-animate-zoom" src="./img/camilodois.jpeg" style="width:100%">
+   <img class="mySlidess w3-animate-zoom" src="./img/p.jpg" style="width:100%">
    <div class="w3-row w3-black w3-center">
     <div class="w3-display-container">
      <p id="caption"></p>
@@ -424,10 +493,10 @@
      <span class="w3-display-right w3-btn" onclick="plusDivs(1)">&#10095;</span>
     </div>
     <div class="w3-col s4 w3-animate-opacity">
-     <img class="demo w3-opacity w3-hover-opacity-off" src="https://philliaezer.github.io/cartaz/img/camiloum.jpeg" style="width:100%" onclick="currentDiv(1)" alt="Retrato de Camilo Castelo Branco">
+     <img class="demo w3-opacity w3-hover-opacity-off" src="./img/camiloum.jpeg" style="width:100%" onclick="currentDiv(1)" alt="Retrato de Camilo Castelo Branco">
     </div>
     <div class="w3-col s4 w3-animate-opacity">
-     <img class="demo w3-opacity w3-hover-opacity-off" src="https://philliaezer.github.io/cartaz/img/camilodois.jpeg" style="width:100%" onclick="currentDiv(2)" alt="Outro retrato de Camilo">
+     <img class="demo w3-opacity w3-hover-opacity-off" src="./img/camilodois.jpeg" style="width:100%" onclick="currentDiv(2)" alt="Outro retrato de Camilo">
     </div>
     <div class="w3-col s4 w3-animate-opacity">
      <img class="demo w3-opacity w3-hover-opacity-off" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_98-58avM-lGNt6rGPNoN3OFEzQRs0-mZKA&usqp=CAU" style="width:100%" onclick="currentDiv(3)" alt="Camilo, sua esposa, e seu filho">
@@ -470,199 +539,6 @@
 </footer>
 
 <script src="./script.js"></script>
-
-<script>
-window.onscroll = function() {scrollSign()};
-
-function scrollSign(){
-    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    var altura = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    var scrolled = (winScroll / altura) * 100;
-    document.getElementById("minhaBarra").style.width = scrolled + "%";
-  };
-
-// Automatic Slideshow - change image every 4 seconds
-var myIndex = 0;
-var slideIndex = 1;
-var mmd = document.getElementById('myModal');
-
-carousel();
-
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 4000);    
-}
-
-function openModal(xy) {
-  switch(xy){
-  	case 'myModal':
-  		document.getElementById(xy).style.display = "block";
-  		mmd.webkitRequestFullscreen();
-  	break;
-  				
-  	case 'settings':
-  		document.getElementById(xy).style.display = "block";
-  		var x = document.getElementById("navDemo");
-  		x.className += " w3-show";
-  	break;
-  				
-  	default:
-  		document.getElementById(xy).style.display = "block";
-  	break;
-  };
-}
-
-function closeModal() {
-  document.getElementById('myModal').style.display = "none";
-  mmd.style.display = "none";
-  document.getElementById(xy).style.display = "none";
-  document.exitFullscreen();
-
-}
-
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
-
-function showDivs(n) {
-  var e;
-  var x = document.getElementsByClassName("mySlidess");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (e = 0; e < x.length; e++) {
-    x[e].style.display = "none";
-  }
-  for (e = 0; e < dots.length; e++) {
-    dots[e].className = dots[e].className.replace(" w3-opacity-off", "");
-  }
-  x[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " w3-opacity-off";
-  captionText.innerHTML = dots[slideIndex-1].alt;
-}
-
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-// When the user clicks anywhere outside of the modal, close it
-var modal = document.getElementById('ticketModal');
-var anderson = document.getElementById('ticketAnderson');
-var gustavo = document.getElementById('ticketGustavo');
-var guilherme = document.getElementById('ticketGuilherme');
-var tag = document.createElement('script');
-  
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-  
-  if (event.target == anderson) {
-    anderson.style.display = "none";
-  }
-  
-  if (event.target == gustavo) {
-    gustavo.style.display = "none";
-  }
-  
-  if (event.target == guilherme) {
-    guilherme.style.display = "none";
-  }
-}
-
-tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-      // 3. This function creates an <iframe> (and YouTube player)
-      //    after the API code downloads.
-      var player;
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-          height: '360',
-          width: '100%',
-          videoId: 'wtvE6z2c1rc'
-        });
-      }
-
-      function stopVideo() {
-        player.stopVideo();
-      }
-
-	// Get the button:
-	let mybutton = document.getElementById("myBtnio");
-
-	// When the user scrolls down 20px from the top of the document, show the button
-	window.onscroll = function() {scrollFunction()};
-
-	function scrollFunction() {
-	  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-	    mybutton.style.display = "block";
-	  } else {
-	    mybutton.style.display = "none";
-	  }
-	}
- 
-	// When the user clicks on the button, scroll to the top of the document
-	function topFunction() {
-	  document.body.scrollTop = 0; // For Safari
-	  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-	}
-
-function disablen(){
-  	event.preventDefault();
-  	document.getElementById('urlcall').style.display = "block";
-  	}
-
-function chTheme(){
-	var themerIer = document.getElementById('body');
-	var themer = themerIer.getAttribute('theme');
-							
-	if(themer == 'light'){
-		themerIer.setAttribute('theme','dark');
-		document.getElementById('all-content').classList.add('w3-darker');
-		document.getElementById('all-content').classList.remove('w3-lighter');
-		document.getElementById('rftb').classList.add('w3-table-black');
-		document.getElementById('rftb').classList.remove('w3-table-all');
-		document.getElementById('theme-icon').classList.add('fa-sun');
-		document.getElementById('theme-icon').classList.remove('fa-moon');
-		document.getElementById('quotte').classList.add('w3-bck-greyer');
-		document.getElementById('quotte').classList.remove('w3-light-grey');
-	};
-							
-	if(themer == 'dark'){
-		themerIer.setAttribute('theme','light');
-		document.getElementById('all-content').classList.add('w3-lighter');
-		document.getElementById('all-content').classList.remove('w3-darker');
-		document.getElementById('rftb').classList.add('w3-table-all');
-		document.getElementById('rftb').classList.remove('w3-table-black');
-		document.getElementById('theme-icon').classList.add('fa-moon');
-		document.getElementById('theme-icon').classList.remove('fa-sun');
-		document.getElementById('quotte').classList.add('w3-light-grey');
-		document.getElementById('quotte').classList.remove('w3-bck-greyer');
-	};
-};
-  // Desculpe, esse site ainda está bastante desorganizado :)
-  
-</script>
 
 </body>
 </html>
