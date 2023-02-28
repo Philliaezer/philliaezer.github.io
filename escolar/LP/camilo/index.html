@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>Camilo Castelo Branco</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="./img/p.jpg" type="image/jpg">
+<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	
+<style>
+  body {font-family: "Lato", sans-serif}
+  .mySlides {display: none}
+  .w3-select-usecase::selection {background-color: black; color: white}
+  .w3-select-usecase::-moz-selection {background: black; color: white} 
+  .w3-ytvideo {box-sizing: border-box;}
+  .mySlidess {display: none}
+  .nonnio {display: none}
+  .progress-container{width: 100%; height: 8px; background: #aaa}
+  .progress-bar{height: 8px; background: #AA6C16; width: 0%}
+  .progress-bar:after {content: ""; height: 8px; background: red; width: 0%}
+  .w3-text-animt{
+    -webkit-animation: w3-text-animt 5s cubic-bezier(0.215,0.610,0.355,1.000) both;
+    animation: w3-text-animt 5s cubic-bezier(0.215,0.610,0.355,1.000) both;
+  }
+
+  @-webkit-keyframes w3-text-animt{
+      0%{letter-spacing:0.2em; font-size:40px; opacity:0;}
+      40%{opacity:0.6; font-size:30px;}
+      100%{letter-spacing:normal;opacity:1;}
+      }
+
+  @keyframes w3-text-animt{
+      0%{letter-spacing:0.2em; font-size:40px; opacity:0;}
+      40%{opacity:0.6; font-size:30px;}
+      100%{letter-spacing:normal;opacity:1;}
+      }
+</style>
+</head>
+
+<body theme="light" id="body">
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="openModal('bio-resum')">BIOGRAFIA</a>
+    <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MENU UM</a>
+    <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MENU DOIS</a>
+    <a href="#contrib" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTRIBUIDORES</a>
+    <div class="w3-dropdown-hover w3-hide-small">
+      <button class="w3-padding-large w3-button" title="More">MAIS <i class="fa fa-caret-down"></i></button>     
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="#" class="w3-bar-item w3-button" onclick="openModal('settings')">CONFIGURAÇÕES</a>
+        <a href="#" class="w3-bar-item w3-button">INFORMAÇÕES</a>
+        <a href="#" class="w3-bar-item w3-button">SUGESTÕES</a>
+      </div>
+    </div>
+    <a class="w3-bar-item w3-button w3-padding-large w3-right" href="javascript:void(0)" onclick="chTheme()">
+	    <i id="theme-icon" class="fa-solid fa-moon"></i>
+     </a>
+    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right" onclick="chTheme()">
+      <i class="fa fa-search"></i>
+    </a>
+  </div>
+
+  <div class="progress-container">
+    <div class="progress-bar" id="minhaBar"></div>
+  </div>
+</div>
+
+<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a href="#band" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">VIDEO</a>
+  <a href="#ref" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">REFERÊNCIAS</a>
+  <a href="#contrib" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">COONTRIBUIDORES</a>
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-large" onclick="openModal('settings')">CONFIGURAÇÕES</a>
+</div>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px" id="all-content">
+
+  <!-- Automatic Slideshow Images -->
+  <div class="mySlides w3-display-container w3-center">
+    <img src="./img/camiloum.jpeg" class="w3-animate-opacity" style="width:100%" onclick="openModal('myModal');currentDiv(1)">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Camilo (1)</h3>
+      <p><b>Camillo</b></p>   
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="./img/camilodois.jpeg" class="w3-animate-opacity" style="width:100%" onclick="openModal('myModal');currentDiv(2)">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Camilo (2)</h3>
+      <p><b>Outra imagem do Camilo.</b></p>    
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_98-58avM-lGNt6rGPNoN3OFEzQRs0-mZKA&usqp=CAU" class="w3-animate-opacity" style="width:100%" onclick="openModal('myModal');currentDiv(3)">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Camilo (3)</h3>
+      <p><b>Camilo e sua esposa.</b></p>    
+    </div>
+  </div>
+
+  <!-- Seção "Pequena Biografia" do Camilo -->
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+    <h2 class="w3-wide w3-text-animt">CAMILO CASTELO BRANCO</h2>
+    <p class="w3-opacity"><i>Escritor Português</i></p>
+    <p class="w3-justify">Camilo Castelo Branco nasceu na Freguesia dos Martires, em Lisboa, Portugal, no dia 16 de março de 1825, filho de Manuel Joaquim Batalha Castelo Branco e de Jacinta Rosa do Espirito Santo Ferreira. Ficou orfão de mãe com um ano e de pai com 10 anos. Foi morar com uma tia e depois com sua irmã mais velha. Em 1841 com apenas 16 anos, casou se com uma jovem de 15 anos, Joaquina Pereira, mas logo a abandonou.</p>
+
+    <div class="w3-panel w3-light-grey" id="quotte">
+      <span style="font-size:150px;line-height:0.6em;opacity:0.2">&#10077;</span>
+      <p class="w3-xlarge" style="margin-top:-40px">
+        <i class="w3-select-usecase">"As maiores desgraças são aquelas que a si próprias não podem perdoar"</i>
+      </p>
+      <p>Camilo Castelo Branco</p>
+    </div>
+    
+    <p class="w3-justify">Em 1843 ingressou na Escola de Medicina no Porto mas se entregou a boêmia e não conseguiu concluir o curso.</p>
+    
+    <h3 class="w3-wide">Vida Amorosa</h3>
+    <p class="w3-justify">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.</p>
+	  
+    <h3 class="w3-wide">Vida Religiosa</h3>
+    <p class="w3-justify">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.</p>
+	  
+    <h3 class="w3-wide">Infância</h3>
+    
+    <h3 class="w3-wide">Adolescência</h3>
+    <p class="w3-justify">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.</p>
+	  
+    <h3 class="w3-wide">Antes da Fama</h3>
+    <p class="w3-justify">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.</p>
+	  
+    <h3 class="w3-wide">Pensamentos sobre politica</h3>
+    <p class="w3-justify">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.</p>
+	  
+    <h3 class="w3-wide">Pensamentos sobre o Brasil</h3>
+    <p class="w3-justify">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.</p>
+	  
+    <h3 class="w3-wide">Legado</h3>
+    <p class="w3-justify">Camilo pouco falava sobre o que ele pensava sobre o Brasil. As únicas menções que ele deu sobre o país foi em seu último livro "A Brasileira de Prazins".</p>
+    <p class="w3-justify">Ah, e vale lembrar que ele recebera do império do Brasil, sua única honraria concedida oficialmente.</p>
+	  
+    <h3 class="w3-wide">Seus pais</h3>
+    <p class="w3-justify">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.</p>
+	  
+    <h3 class="w3-wide">Inimigos</h3>
+    <p class="w3-justify">O único inimigo declarado publicamente de Camilo, seria Manuel, ex-marido de Ana, a quem lhe abandonou para ficar com o escritor português.</p>
+	  
+    <h3 class="w3-wide">Alguns vídeos de apoio sobre o estilo literário do Camilo Castelo Branco</h3>
+    
+    <div class="w3-container">
+      <div id="player"></div>
+    </div>
+
+    <!-- Seção "Curiosidades" do Camilo -->
+    <div class="w3-container">
+     <h3 class="w3-wide">Curiosidades</h3>
+     <p class="w3-justify">fughgh</p>
+    </div>
+   
+    <!-- Seção "Referências Bibliográficas" do Site -->
+    
+  <div class="w3-container" id="ref">
+    <h3 class="w3-wide w3-personal-ref-black">Referências Bibliográficas</h3>
+    <table id="rftb" class="w3-card-4 w3-table-all">
+      <tbody>
+        <tr>
+          <th class="w3-center">&nbsp;</th>
+        </tr>
+        <tr>
+          <td class="w3-center">SOBRENOME, Nome. Título do artigo. Nome do site, ano de publicação. Disponível em: endereço eletrônico.</td>
+        </tr>
+        <tr>
+          <td class="w3-center">SOBRENOME, Nome. Título do artigo. Nome do site, ano de publicação. Disponível em: <a href="https://google.com" onclick="disablen()">endereço eletrônico.</a></td>
+        </tr>
+        <tr>
+          <td class="w3-center">SOBRENOME, Nome. Título do artigo. Nome do site, ano de publicação. Disponível em: endereço eletrônico.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+   
+  <!-- Seção "Contribuidores" do projeto -->
+  <div class="w3-center w3-margin-top w3-row-padding w3-hide-small">
+    <h3 class="w3-wide" id="contrib">Contribuidores</h3>
+    <h5 class="w3-wide">Clique nas fotos para mas informações</h5>
+    
+    <div class="w3-third w3-personal-mb-div">
+      <div class="w3-card-dark">
+        <img src="./img/Gustavo.jpeg" class="w3-round" alt="Gustavo" onclick="openModal('ticketGustavo')" style="width:100%">
+        <p>Gustavo</p>
+    </div>
+  </div>
+	      
+  <div class="w3-third w3-personal-mb-div">
+	  <div class="w3-card">
+      <img src="https://thumbs.dreamstime.com/z/%C3%ADcone-de-aten%C3%A7%C3%A3o-ilustra%C3%A7%C3%A3o-simples-do-sinal-vetor-164299629.jpg" class="w3-round w3-margin-bottom w3-greyscale" alt="Guilherme" onclick="document.getElementById('ticketGuilherme').style.display='block'" style="width:100%">
+      <p>Guilherme</p>
+	  </div>
+  </div>
+	      
+  <div class="w3-third w3-personal-mb-div">
+	  <div class="w3-card">
+		<img src="./img/Anderson.jpg" class="w3-round w3-margin-bottom w3-hover-opacity" alt="Anderson" onclick="document.getElementById('ticketAnderson').style.display='block'" style="width:100%">
+
+		<div class="w3-container w3-center">
+		   <p>Anderson</p>
+		 </div>
+		          
+           </div>
+         </div>
+      </div>
+     
+     <div class="w3-center w3-margin-top w3-row-padding w3-hide-large">
+ 	 <div class="conteine">
+       		<input type="checkbox" id="switching">
+		    <div class="outer">
+			<div class="content">
+				<label for="switching">
+				  <span class="toggle">
+					<span class="circle"></span>
+				  </span>
+				</label>
+				<div class="image-box">
+				   <img src="./img/Gustavo.jpeg" class="w3-round" alt="Gustavo" onclick="openModal('ticketGustavo')" style="width:150px">
+				</div>
+
+				<div class="details w3-left-align">
+				     <div class="w3-nome">Gustavio</div>
+				     <div class="w3-descricao">Dançarino</div>
+				     <p>Alguem que não desiste de seus objetivos, e que possui uma criatividade excepcional.</p>
+				     <button onclick="openModal('ticketGustavo')">Saiba Mais</button>
+				     <div class="media-icons">
+					<a href="#"><i class="fab fa-facebook"></i></a>
+					<a href="#"><i class="fab fa-twitter"></i></a>
+					<a href="#"><i class="fab fa-telegram"></i></a>
+				     </div>
+				 </div>
+			</div>
+		</div>
+  	 </div>
+
+	<div class="conteine">
+       	<input type="checkbox" id="switchGuilherme">
+		      <div class="outer">
+			      <div class="content">
+			      		<label for="switchGuilherme">
+				      		<span class="toggle">
+				      				<span class="circle"></span>
+				      		</span>
+			      		</label>
+			      		<div class="image-box">
+			       		 <img src="https://thumbs.dreamstime.com/z/%C3%ADcone-de-aten%C3%A7%C3%A3o-ilustra%C3%A7%C3%A3o-simples-do-sinal-vetor-164299629.jpg" class="w3-round" alt="Guilherme" onclick="openModal('ticketGuilherme')" style="width:150px">
+			     		 </div>
+			     		 
+			     		 <div class="details w3-left-align">
+			     		 		<div class="w3-nome">Guilherme</div>
+			     		 		<div class="w3-descricao">Humano</div>
+			     		 		<p>Um ser bastante desconhecido, mesmo visivel.</p>
+			     		 		<button onclick="openModal('ticketGuilherme')">Saiba Mais</button>
+			     		 		<div class="media-icons">
+			     		 				<a href="#"><i class="fab fa-facebook"></i></a>
+			     		 				<a href="#"><i class="fab fa-twitter"></i></a>
+			     		 				<a href="#"><i class="fab fa-telegram"></i></a>
+		     		 			</div>
+		     			 </div>
+		     		 </div>
+		      </div>
+	      </div>
+	     
+<div class="conteine">
+       	<input type="checkbox" id="switchAnderson">
+		      <div class="outer">
+			      <div class="content">
+			      		<label for="switchAnderson">
+				      		<span class="toggle">
+				      				<span class="circle"></span>
+				      		</span>
+			      		</label>
+			      		<div class="image-box">
+			       		 <img src="./img/Anderson.jpg" class="w3-round" alt="Anderson" onclick="openModal('ticketAnderson')" style="width:150px">
+			     		 </div>
+			     		 
+			     		 <div class="details w3-left-align">
+			     		 		<div class="w3-nome">Anderson</div>
+			     		 		<div class="w3-descricao">Progamador</div>
+			     		 		<p>Alguem que tem muitas metas, e que acredita que pode alcança-las da melhor forma possivel.</p>
+			     		 		<button onclick="openModal('ticketAnderson')">Saiba Mais</button>
+			     		 		<div class="media-icons">
+			     		 				<a href="#"><i class="fab fa-facebook"></i></a>
+			     		 				<a href="#"><i class="fab fa-twitter"></i></a>
+			     		 				<a href="#"><i class="fab fa-telegram"></i></a>
+		     		 			</div>
+		     			 </div>
+		     		 </div>
+		      </div>
+	      </div>
+     </div>
+	
+  <!-- Ticket Anderson -->
+  <div id="ticketAnderson" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-teal w3-center w3-padding-32"> 
+        <span onclick="document.getElementById('ticketAnderson').style.display='none'" class="w3-button w3-teal w3-xlarge w3-display-topright">&times;</span>
+        <h2 class="w3-wide"><i class="fa fa-user w3-margin-right"></i>Sobre Anderson</h2>
+      </header>
+      <div class="w3-container">
+        <h3>Informações</h3>
+            <p><b>Nome: </b>Anderson da Silva Duarte Alves</p>
+            <p><b>Idade: </b>16 anos</p>
+            <b>Hobbies: </b>
+              <ol>
+                <li>Dormir</li>
+                <li>Programar</li>
+                <li>Dormir</li>
+                <li>Fazer calculos matemáticos na minha lousa</li>
+                <li>Eu já falei dormir?</li>
+              </ol>
+        <h3>Bio</h3>
+            <p><i>Eu gosto de ajudar quem mais precisa de mim, mas infelizmente não tenho superpoder para ajudar a todos :(. Sou extrovertido apenas com meus amigos, mas não costumo me socializar com quem não parece ser bom.</i></p>
+    
+        <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketAnderson').style.display='none'">Close <i class="fa fa-remove"></i></button>
+        
+        <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ticket Gustavo -->
+  <div id="ticketGustavo" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-teal w3-center w3-padding-32"> 
+        <span onclick="document.getElementById('ticketGustavo').style.display='none'" class="w3-button w3-teal w3-xlarge w3-display-topright">&times;</span>
+        <h2 class="w3-wide"><i class="fa fa-user w3-margin-right"></i>Sobre Gustavo</h2>
+      </header>
+      <div class="w3-container">
+        <h3>Informações</h3>
+            <p><b>Nome: </b>Gustavo Souza Santos</p>
+            <p><b>Idade: </b>16 anos</p>
+            <b>Hobbies:</b>
+              <ol>
+                <li>Dançar</li>
+                <li>Aprender Inglês</li>
+                <li>Comer</li>
+                <li>Dormir</li>
+              </ol>
+        <h3>Bio</h3>
+          <p><i>Se eu tô aqui no mundo, é pra mim suportar 😉</i></p>
+    
+        <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketGustavo').style.display='none'">Close <i class="fa fa-remove"></i></button>
+        
+        <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Ticket Guilherme -->
+  <div id="ticketGuilherme" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-teal w3-center w3-padding-32"> 
+        <span onclick="document.getElementById('ticketGuilherme').style.display='none'" class="w3-button w3-teal w3-xlarge w3-display-topright">&times;</span>
+        <h2 class="w3-wide"><i class="fa fa-user w3-margin-right"></i>Sobre Guilherme</h2>
+      </header>
+      <div class="w3-container">
+        <h3>Informações</h3>
+            <p><b>Nome:</b> Guilherme</p>
+            <p><b>Idade:</b> 16 anos</p>
+            <p><b>Hobbies:</b> Nada a apresentar</p>
+    
+        <h3>Bio</h3>
+          <p><i>Ainda não contribuiu</i></p>
+    
+        <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketGuilherme').style.display='none'">Close <i class="fa fa-remove"></i></button>
+        
+        <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Ticket BioResum -->
+  <div id="bio-resum" class="w3-modal" style="-webkit-user-select: none; user-select: none;">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-teal w3-center w3-padding-32"> 
+        <span onclick="document.getElementById('bio-resum').style.display = 'none'" class="w3-button w3-teal w3-xlarge w3-display-topright">&times;</span>
+        <h2 class="w3-wide"><i class="fa fa-sun w3-margin-right"></i>Vai citar em seu trabalho?</h2>
+      </header>
+      
+      <h3>Use o seguinte rodapé:</h3>
+      <p>Camilo Castelo Branco - Páginas do GitHub, 2022. Disponível em: https://philliaezer.github.io/cartaz</p>
+    
+        <button class="w3-button w3-red w3-section" onclick="document.getElementById('bio-resum').style.display='none'">Fechar <i class="fa fa-remove"></i></button>
+        
+        <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Ticket Configurações -->
+  <div id="settings" class="w3-modal">
+    <div class="w3-modal-content w3-animate-fading-unloop w3-card-4 w3-bck-greyer conf">
+      <header class="w3-container w3-indigo-gradient w3-center w3-padding-32"> 
+        <span onclick="document.getElementById('settings').style.display = 'none'" class="w3-button w3-teal w3-xlarge w3-display-topright">&times;</span>
+        <h2 class="w3-wide"><i class="fa fa-user w3-margin-right"></i>Configurações</h2>
+      </header>
+      <div class="w3-container">
+      		<div class="w3-container w3-scroller">
+		        <h3>Fonte</h3>
+		            <p><b>Nome:</b> Guilherme</p>
+		            <hr />
+		        <h3>Tamanho da Fonte</h3>
+		            <span onclick="document.getElementById('all-content').style.fontSize = '1em'">A</span>
+		            <span onclick="document.getElementById('all-content').style.fontSize = '2em'">A</span>
+		            <span onclick="aumentaFonte('3em')">A</span>
+		            <hr />
+		        <h3>Configurações Avançadas</h3>
+		            <p><b>Nome:</b> Guilherme</p>
+		            <hr />
+		        <h3>Bio</h3>
+		          <p><i>Ainda não contribuiu</i></p>
+      		</div>
+					    
+        <button class="w3-button w3-red w3-section" onclick="document.getElementById('settings').style.display='none'">Fechar <i class="fa fa-remove"></i></button>
+        
+        <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ticket URL Call -->
+  <div id="urlcall" class="w3-modal-personal">
+    <div class="w3-modal-content w3-animate-bottom w3-card-4 w3-bck-greyer conf">
+    
+      <div class="w3-container">
+      		<div class="w3-container w3-center">
+		        <h2>Você deseja abrir esse link?</h2>
+		        <div class="w3-btn w3-blue">Abrir aqui</div>
+		        <hr />
+
+		        <div class="w3-btn">Abrir aqui</div>
+		        <hr />
+
+		        <div class="w3-button">Abrir aqui</div>
+		        <hr />
+            
+		        <h3>Bio</h3>
+		          <p><i>Ainda não contribuiu</i></p>
+      		</div>
+        
+          <div class="w3-center w3-display-container">
+	            <a class="w3-display-left" href="https://wa.me/?text=Ola%20Amigo!!!%0A%0AAchei%20esse%20site%20maravilhoso%20para%20aprender%20quem%20foi%20Camilo%20Castelo%20Branco,%20espero%20que%20goste:%20https://philliaezer.github.io/cartaz/">
+					     <div class="w3-button w3-hover-teal w3-green" style="transition: 0.25s;">
+					      <p class="w3-text"><i class="fa fa-whatsapp"></i> Envie por WhatsApp</z></p>
+					      </div>
+					     </a>
+					    
+					     <a class="w3-display-middle" href="#">
+					      <div class="w3-button w3-hover-indigo w3-blue" style="transition: 0.25s;">
+					       <p><i class="fa fa-telegram"></i> Envie por Telegram</p>
+								  	</div>
+					     </a>
+					    
+					     <a class="w3-display-right" href="#">
+					      <div class="w3-button w3-hover-purple w3-red" style="transition: 0.25s;">
+					       <p><i class="material-icons">email</i>Envie por Email</p>
+					      </div>
+					     </a>
+					    </div>
+        
+        <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
+      </div>
+    </div>
+  </div>
+
+ <!-- Modal do Carrossel de Imagens do Camilo -->
+ <div id="myModal" class="w3-modal w3-black">
+ <span class="w3-text-white w3-xxlarge w3-hover-text-grey w3-container w3-display-topright" onclick="closeModal()" style="cursor:pointer">&times;</span>
+ <div class="w3-modal-content">
+
+  <div class="w3-content" style="max-width:1200px">
+   <img class="mySlidess w3-animate-zoom" src="./img/camiloum.jpeg" style="width:100%">
+   <img class="mySlidess w3-animate-zoom" src="./img/camilodois.jpeg" style="width:100%">
+   <img class="mySlidess w3-animate-zoom" src="./img/p.jpg" style="width:100%">
+   <div class="w3-row w3-black w3-center">
+    <div class="w3-display-container">
+     <p id="caption"></p>
+     <span class="w3-display-left w3-btn" onclick="plusDivs(-1)">&#10094;</span>
+     <span class="w3-display-right w3-btn" onclick="plusDivs(1)">&#10095;</span>
+    </div>
+    <div class="w3-col s4 w3-animate-opacity">
+     <img class="demo w3-opacity w3-hover-opacity-off" src="./img/camiloum.jpeg" style="width:100%" onclick="currentDiv(1)" alt="Retrato de Camilo Castelo Branco">
+    </div>
+    <div class="w3-col s4 w3-animate-opacity">
+     <img class="demo w3-opacity w3-hover-opacity-off" src="./img/camilodois.jpeg" style="width:100%" onclick="currentDiv(2)" alt="Outro retrato de Camilo">
+    </div>
+    <div class="w3-col s4 w3-animate-opacity">
+     <img class="demo w3-opacity w3-hover-opacity-off" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_98-58avM-lGNt6rGPNoN3OFEzQRs0-mZKA&usqp=CAU" style="width:100%" onclick="currentDiv(3)" alt="Camilo, sua esposa, e seu filho">
+    </div>
+   </div> <!-- End row -->
+  </div> <!-- End w3-content -->
+  
+ </div> <!-- End modal content -->
+</div> <!-- End modal -->
+
+<!-- End Page Content -->
+</div>
+</div>
+
+<div class="w3-center">
+	<a href="https://wa.me/send?text=Ola%20Amigo!!!%0A%0AAchei%20esse%20site%20maravilhoso%20para%20aprender%20quem%20foi%20Camilo%20Castelo%20Branco:%20https://philliaezer.github.io/cartaz/">
+	     <div class="w3-button w3-hover-teal w3-green" style="transition: 0.25s;">
+	      <p class="w3-text"><i class="fa fa-whatsapp"></i><z class="w3-hide-small"> Envie por WhatsApp</z></p>
+	</div></a><a href="#"><div class="w3-button w3-hover-indigo w3-blue" style="transition: 0.25s;">
+
+		<p><i class="fa fa-telegram"></i><z class="w3-hide-small"> Envie por Telegram</z></p>
+		</div>
+	    </a><a href="#"><div class="w3-button w3-hover-purple w3-red" style="transition: 0.25s;">
+		<p><i class="material-icons">email</i><z class="w3-hide-small"> Envie por Email</z></p>
+		</div>
+	 </a>
+</div>
+
+<button onclick="topFunction()" id="myBtnio" title="Topo">Topo</button>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+  <i class="fa-solid fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa-solid fa-instagram w3-hover-opacity"></i>
+  <i class="fa-solid fa-snapchat w3-hover-opacity"></i>
+  <i class="fa-solid fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa-solid fa-twitter w3-hover-opacity"></i>
+  <i class="fa-solid fa-linkedin w3-hover-opacity"></i>
+  <p class="w3-medium">Esse é um template prodizido pela <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">W3Schools</a></p>
+</footer>
+
+<script src="./script.js"></script>
+
+</body>
+</html>
