@@ -2,9 +2,11 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta og:title="Templates InstantView Explicado">
+    <meta og:description="Instant View do Telegram">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documento Teste</title>
+    <title>Templates InstantView Explicado</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -29,6 +31,7 @@
         <pre>Texto pré-formatado</pre>
 
         <blockquote>Bloco de Citação</blockquote>
+        <cite>Legenda do Bloco de Citação</cite>
         
         <h3>Formatações</h3>
         <b>Negrito</b>
@@ -79,7 +82,25 @@
             &lt;u&gt;Sublinhado&lt;/u&gt;
         </pre>
         
-        <sup>Sublinhado</sup>
+        <a href="https://telegram.org/">Link para outro site</a>
+        <pre>
+            Notação HTML
+            &lt;u&gt;Sublinhado&lt;/u&gt;
+        </pre>
+        
+        <a href="mailto:support@telegram.org">Link para um Email</a>
+        <pre>
+            Notação HTML
+            &lt;u&gt;Sublinhado&lt;/u&gt;
+        </pre>
+        
+        <a href="tel:45000">Link Para um Telefone</a>
+        <pre>
+            Notação HTML
+            &lt;u&gt;Sublinhado&lt;/u&gt;
+        </pre>
+        
+        <a href="#topo">Link para alguma parte da Página</a>
         <pre>
             Notação HTML
             &lt;u&gt;Sublinhado&lt;/u&gt;
@@ -159,6 +180,7 @@
         <h3>Videos</h3>
         <video controls="controls">
             <source src="./res/video.mp4" type="audio/ogg"/>
+            Trate de migrar para um navegador que suporte videos, ou senão, a chinela vai cantar lerigou
         </video>
         
         <h3>Videos (Do YouTube)</h3>
@@ -191,11 +213,28 @@
         <h3>Mapa</h3>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d704894.4141709413!2d-46.814717893138614!3d-23.7562145702819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce448183a461d1%3A0x9ba94b08ff335bae!2zU8OjbyBQYXVsbywgU1A!5e0!3m2!1spt-PT!2sbr!4v1678935348404!5m2!1spt-PT!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         
+        <h2><u>Nota</u></h2>
+        <p>Já estou preparando um manual contendo todos os possiveis sites que podem ser incluidos da tag <kbd>iframe</kbd>, fiquem ligados!</p>
+
+        <h3>Slideshow</h3>
+        <slideshow>
+            <img src="./res/slideshow/photo-one.png" alt="GitHub" srcset="">
+            <img src="./res/slideshow/photo-two.jpg" alt="Telegram" srcset="">
+            <img src="./res/slideshow/photo-three.jpg" alt="GDrive" srcset="">
+        </slideshow>
+
         <related>
             <h1>Artigos relacionados</h1>
             <h2><a href="https://t.me/iv?url=https%3A%2F%2Fphilliaezer.github.io%2Fteste%2Fiv%2Foutro%2Findex.html&rhash=bb2e14cbe19d78">Essa planta milagrosa vai curar sua calvicie</a></h2>
             <p>Veja os poderes da planta africana Tuma Vegöea Nakarák</p>
         </related>
+        
+        <h3>Divisor</h3>
+        <hr/>
+
+        <footer>
+            <p>Rodapé da Página</p>
+        </footer>
     </main>
 </body>
 
