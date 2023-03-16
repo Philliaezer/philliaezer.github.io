@@ -16,9 +16,19 @@ main{
     font-family: Arial;
 }
 
-main::selection main::-moz-selection{
-    background-color: black;
-    color: white;
+*::selection{
+    background-color: darkblue;
+    color: lightblue;
+}
+
+h1::selection{
+    background-color: cadetblue;
+    color: aqua;
+}
+
+h2::selection{
+    background-color: green;
+    color: greenyellow;
 }
 
 .iframe{
