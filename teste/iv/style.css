@@ -61,8 +61,23 @@ h6::selection{
 figure{
     border: 2px solid black;
     align-items: center;
+    overflow: hidden;
 }
 
-figure{
-    overflow: hidden;
+div{
+    padding-left: auto;
+    padding-right: auto;
+}
+
+img{
+    background-size: cover;
+    clear: both;
+    max-width: 100%;
+    max-height: 100%;
+    left: 50%;
+    border: 1px blue solid;
+}
+
+iframe{
+    max-width: 100%;
 }
