@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Atendimento | Midea Carrier</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://cdn.jsdelivr.net/npm/@material/web/"
+      }
+    }
+    </script>
+    
+    <script type="module">
+        import '@material/web/all.js/+esm';
+    </script>
+
+    <style>
+        :root {
+            --sidebar-width: 300px;
+            --md-sys-color-primary: #0061a4;
+            --md-sys-color-surface: #fdfbff;
+            --md-sys-color-on-surface: #1a1c1e;
+            --md-sys-color-surface-container: #f0f4f9;
+            --md-icon-button-icon-size: 32px;
+            --md-icon-button-icon-color: #dc362e;
+            --md-icon-button-color: #dc362e;
+            --md-outlined-text-field-label-text-color: #908c96;
+            --md-outlined-text-field-input-text-color: #beb8c7;
+            /*background-color: #dc362e;*/
+            --divider: #dee2e6; 
+        }
+
+        .dark-theme {
+            --md-sys-color-primary: #00a2ff;
+            --md-sys-color-surface: #1c1b1f;
+            --md-sys-color-on-surface: #e6e1e5;
+            --md-sys-color-surface-container: #2b2930;
+            --md-filled-button-label-text-color: black;
+            --md-filled-button-hover-label-text-color: black;
+            --md-filled-button-icon-color: black;
+            --md-filled-button-hover-icon-color: black;
+            --md-outlined-icon-button-outline-color: white;
+            --md-dialog-container-color: var(--md-sys-color-surface);
+            --md-outlined-icon-button-hover-icon-color: rgb(100, 94, 94);    
+            --md-outlined-icon-button-icon-color: rgb(193, 180, 180);    
+            --divider: #3b3942;
+            color-scheme: dark;
+        }
+
+        body {
+            margin: 0; font-family: 'Roboto', sans-serif;
+            background-color: var(--md-sys-color-surface);
+            color: var(--md-sys-color-on-surface);
+            height: 100vh; overflow: hidden;
+        }
+
+        .app-layout { display: flex; height: 100vh; }
+
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--md-sys-color-surface-container);
+            border-right: 1px solid var(--divider);
+            display: flex; flex-direction: column;
+        }
+
+        .sidebar-header { padding: 16px; border-bottom: 1px solid var(--divider); display: flex; justify-content: space-between; align-items: center; }
+
+        .records-list { flex: 1; overflow-y: auto; padding: 10px 0; }
+
+        .record-item {
+            padding: 14px 20px; cursor: pointer; border-left: 4px solid transparent;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .record-item:hover { background: rgba(150, 150, 150, 0.1); }
+        .record-item.active { 
+            background: rgba(208, 188, 255, 0.15); 
+            border-left-color: var(--md-sys-color-primary); 
+        }
+
+        .sidebar-footer { padding: 16px; border-top: 1px solid var(--divider); }
+
+        .main-content { flex: 1; padding: 40px; overflow-y: auto; display: flex; justify-content: center; }
+
+        .editor-container { width: 100%; max-width: 650px; }
+
+        .form-layout { display: flex; flex-direction: column; gap: 24px; margin-top: 24px; }
+
+        md-outlined-text-field { width: 100%; }
+
+        .actions-top { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--divider); padding-bottom: 16px; }
+        
+        .btn-delete {
+            --md-outlined-button-outline-color: #ffb4ab;
+            --md-outlined-button-label-text-color: #ffb4ab;
+        }
+
+        .figure-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .vertical {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .center {
+            align-items: center;
+        }
+
+        .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 100px; opacity: 0.5; }
+    </style>
+</head>
+<body class="dark-theme">
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+
+        function MideaRegistrationApp() {
+            const [chamados, setChamados] = useState([]);
+            const [isDark, setIsDark] = useState(true);
+            const [activeId, setActiveId] = useState(null);
+            const [formData, setFormData] = useState({ id: '', nome: '', dados: '', telefone: '', solicitacao: '', observacoes: '', interno: '' });
+            const observacoesRef = useRef(null);
+            const internoRef = useRef(null);
+            const imgRef = useRef(null);
+            const dialogRef = useRef(null);
+            const usageMenuRef = useRef(null);
+            const usageAnchorRef = useRef(null);
+
+            useEffect(() => {
+                const saved = JSON.parse(localStorage.getItem('call_center_v6') || '[]');
+                setChamados(saved);
+            }, []);
+
+            useEffect(() => {
+                localStorage.setItem('call_center_v6', JSON.stringify(chamados));
+            }, [chamados]);
+
+            useEffect(() => {
+                if (isDark) {
+                    document.body.classList.add('dark-theme');
+                    imgRef.current.style.filter = "invert(0%)";
+                    // fieldRef.current.style.placeholder = "blue";
+                } else {
+                    document.body.classList.remove('dark-theme');
+                    imgRef.current.style.filter = "invert(100%)";
+                    
+                }
+
+            }, [isDark]);
+
+
+            const handleNew = () => {
+                const tempId = 'new-' + Date.now();
+                setActiveId(tempId);
+                const observacoes = `Cliente informa que \n\nTelefone:  | Também é WhatsApp`;
+                const interno = `MOTIVO DO CONTATO: Prezados, boa tarde! \n\nAÇÕES TOMADAS: `;
+                setFormData({ id: tempId, nome: '', dados: '', telefone: '', solicitacao: '', observacoes: observacoes, interno: interno });
+            };
+
+            const handleSelect = (call) => {
+                setActiveId(call.id);
+                setFormData({ ...call });
+            };
+
+            const handleSave = () => {
+                if (!formData.nome.trim()) return alert("O nome do cliente é obrigatório!");
+
+                if (String(formData.id).startsWith('new-')) {
+                    const finalized = { ...formData, id: 'REC-' + Date.now() };
+                    setChamados([finalized, ...chamados]);
+                    setActiveId(finalized.id);
+                    setFormData(finalized);
+                } else {
+                    setChamados(chamados.map(c => c.id === formData.id ? { ...formData } : c));
+                }
+            };
+
+            const handleCopy = (campoRef) => {
+                // alert("Copiado!");
+                const textoParaCopiar = campoRef.current.value;
+
+                if (textoParaCopiar) {
+                    navigator.clipboard.writeText(textoParaCopiar)
+                        .then(() => {
+                            alert("Texto copiado com sucesso!");
+                        })
+                        .catch(err => {
+                            console.error("Erro ao copiar: ", err);
+                        });
+                } else {
+                    alert("Não há texto para copiar.");
+                }
+            }
+
+            const handleDownload = () => {
+                alert("Baixando!");
+            }
+
+            const handleDelete = () => {
+                if(confirm(`Deseja realmente apagar o registro de "${formData.nome || 'Novo Cliente'}"?`)) {
+                    setChamados(chamados.filter(c => c.id !== activeId));
+                    setActiveId(null);
+                    setFormData({ id: '', nome: '', dados: '', telefone: '', solicitacao: '', observacoes: '', interno: '' });
+                }
+            };
+
+            const handlePopupMenu = () => {
+                // alert("Popup");
+                usageMenuRef.current.open = !usageMenuRef.current.open;
+            }
+
+            /*const anchorEl = document.body.querySelector('#usage-anchor');
+            const menuEl = document.body.querySelector('#usage-menu');
+
+            anchorEl.addEventListener('click', () => { menuEl.open = !menuEl.open; });*/
+
+            return (
+                <div className="app-layout">
+                    <aside className="sidebar">
+                        <div className="sidebar-header">
+                            <span style={{fontWeight: '500'}}><img ref={imgRef} src = "midea-logo.svg" alt="Midea Carrier"/> Atendimentos</span>
+                            <md-icon-button toggle selected={isDark} onClick={() => setIsDark(!isDark)}>
+                                <md-icon slot="selected">light_mode</md-icon>
+                                <md-icon>dark_mode</md-icon>
+                            </md-icon-button>
+                        </div>
+
+                        <div className="records-list">
+                            {chamados.map(call => (
+                                <div 
+                                    key={call.id} 
+                                    className={`record-item ${activeId === call.id ? 'active' : ''}`}
+                                    onClick={() => handleSelect(call)}
+                                >
+                                    <span>{call.nome}</span>
+                                    <md-icon style={{fontSize: '18px'}}>chevron_right</md-icon>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="sidebar-footer">
+                            <md-filled-button style={{width: '100%'}} onClick={handleNew}>
+                                <md-icon slot="icon">add</md-icon> Novo Registro
+                            </md-filled-button>
+                        </div>
+                    </aside>
+
+                    <main className="main-content">
+                        {activeId ? (
+                            <div className="editor-container">
+                                <div className="actions-top">
+                                    <h2 style={{margin: 0}}><md-outlined-icon-button>
+                                    <md-icon>person</md-icon>
+                                    </md-outlined-icon-button>&nbsp;  Registro do Cliente</h2>
+                                    <div style={{display: 'flex', gap: '12px'}}>
+                                        <md-outlined-icon-button className="btn-download" onClick={handleDownload}>
+                                            <md-icon>download</md-icon>
+                                        </md-outlined-icon-button>
+                                        <md-outlined-button className="btn-delete" onClick={handleDelete}>
+                                            <md-icon slot="icon">delete</md-icon> Apagar
+                                        </md-outlined-button>
+                                        <md-filled-button onClick={handleSave}>
+                                            <md-icon slot="icon">save</md-icon> Salvar
+                                        </md-filled-button>
+                                    </div>
+                                </div>
+
+                                <div className="form-layout" key={activeId}>
+                                    <md-outlined-text-field 
+                                        label="Nome do Cliente" 
+                                        value={formData.nome}
+                                        onInput={e => setFormData({...formData, nome: e.target.value})}
+                                    ></md-outlined-text-field>
+                                    
+                                    <div className="figure-wrapper">
+                                        <md-outlined-text-field 
+                                            label="Dados de Contato (Modelo, Chave de Acesso...)" 
+                                            value={formData.dados}
+                                            onInput={e => setFormData({...formData, dados: e.target.value})}
+                                        ></md-outlined-text-field>
+
+                                        <md-outlined-text-field 
+                                            label="Telefone" 
+                                            value={formData.telefone}
+                                            onInput={e => setFormData({...formData, telefone: e.target.value})}
+                                        ></md-outlined-text-field>
+                                    </div>
+
+                                    <div className="figure-wrapper center">
+                                    <md-outlined-text-field 
+                                        label="Breve solicitação do cliente..." 
+                                        value={formData.solicitacao}
+                                        onInput={e => setFormData({...formData, solicitacao: e.target.value})}
+                                    ></md-outlined-text-field>
+
+                                    <md-dialog ref={dialogRef}>
+                                        <div slot="headline">
+                                            Registro Avançado
+                                        </div>
+                                        <div slot="content" method="dialog" className="figure-wrapper center">
+                                            <md-outlined-text-field 
+                                                label="Nome do Cliente" 
+                                                // value={formData.nome}
+                                                // onInput={e => setFormData({...formData, nome: e.target.value})}
+                                            ></md-outlined-text-field>
+                                            <span style="position: relative" style={{position: 'relative'}}>
+                                                <md-filled-button ref={usageAnchorRef} onClick={handlePopupMenu} id="usage-anchor">Set with idref</md-filled-button>
+                                                <md-menu id="usage-menu" ref={usageMenuRef} anchor="usage-anchor">
+                                                    <md-menu-item>
+                                                    <div slot="headline">Apple</div>
+                                                    </md-menu-item>
+                                                    <md-menu-item>
+                                                    <div slot="headline">Banana</div>
+                                                    </md-menu-item>
+                                                    <md-menu-item>
+                                                    <div slot="headline">Cucumber</div>
+                                                    </md-menu-item>
+                                                </md-menu>
+                                            </span>
+                                        </div>
+
+                                        <form slot="content" id="form-id" method="dialog">
+                                        </form>
+                                        <div slot="actions">
+                                            <md-text-button form="form-id">Ok</md-text-button>
+                                        </div>
+                                    </md-dialog>
+
+                                    <md-outlined-icon-button className="btn-download" onClick={() => dialogRef.current.show()}>
+                                            <md-icon>add</md-icon>
+                                    </md-outlined-icon-button>
+                                    </div>
+                                    <div className="figure-wrapper">
+                                        <div className="figure-wrapper vertical">
+                                            <md-outlined-text-field 
+                                                ref={observacoesRef}
+                                                label="Observações Call Center" 
+                                                type="textarea" 
+                                                rows="5"
+                                                value={formData.observacoes}
+                                                onInput={e => setFormData({...formData, observacoes: e.target.value})}
+                                            ></md-outlined-text-field>
+                                            
+                                            <md-outlined-button onClick={() => handleCopy(observacoesRef)}>
+                                                <md-icon slot="icon">content_copy</md-icon> Copiar
+                                            </md-outlined-button>
+                                        </div>
+
+                                        <div className="figure-wrapper vertical">
+                                            <md-outlined-text-field 
+                                                ref={internoRef}
+                                                label="Registro Interno" 
+                                                type="textarea" 
+                                                rows="5"
+                                                value={formData.interno}
+                                                onInput={e => setFormData({...formData, interno: e.target.value})}
+                                            >
+                                            </md-outlined-text-field>
+
+                                            <md-outlined-button onClick={() => handleCopy(internoRef)}>
+                                                <md-icon slot="icon">content_copy</md-icon> Copiar
+                                            </md-outlined-button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+                            <div className="empty-state">
+                                <md-icon style={{fontSize: '30px'}}>inbox</md-icon>
+                                <h3>Nenhum atendimento registrado</h3>
+                                <p>Clique em " + Novo Registro " para criar um novo atendimento.</p>
+                            </div>
+                        )}
+                    </main>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<MideaRegistrationApp />);
+    </script>
+</body>
+</html>
